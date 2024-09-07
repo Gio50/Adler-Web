@@ -1,0 +1,671 @@
+html {
+    font-size: 16px; /* Base font size */
+}
+
+/* Global font settings */
+body {
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 1.5rem; /* 16px */
+}
+
+header, nav, footer, .text-container {
+    font-family: 'Sorts Mill Goudy', serif;
+}
+
+/* General page styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Text container styles */
+.text-container {
+    width: 70%; /* Set the width to 70% of the page */
+    margin: 0 auto; /* Center the container */
+    padding: 1.5rem 0; /* 24px vertical padding */
+    background-color: #fff; /* Set the background color to white */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Responsive text container on mobile */
+@media (max-width: 768px) {
+    .text-container {
+        width: 80%; /* More width on smaller screens */
+    }
+}
+
+/* Hero container styles */
+.hero-container {
+    height: 150%; /* Increase the height of the container by 50% */
+    width: 100%; /* Ensure it spans the full width */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px; /* Adjust this value for more space */
+}
+
+.hero-container img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: 100%; /* Scale the image to fill the container's new size */
+    object-fit: cover; /* Prevent distortion by cropping the image */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Round Button Styles */
+.round-button {
+    position: absolute;
+    top: 20px; /* Adjust vertical position from the top */
+    right: 20px; /* Adjust horizontal position from the right */
+    background-color: #901658; /* Background color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 50%; /* Makes the button round */
+    width: 15vw; /* Width is 15% of viewport width on desktop */
+    height: 15vw; /* Height is 15% of viewport width on desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw; /* Font size relative to viewport width on desktop */
+    text-align: center; /* Center text inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+    z-index: 10; /* Ensure it stays above other content */
+    overflow: hidden; /* Ensure text doesn't overflow */
+    line-height: 1; /* Ensure proper spacing of text */
+    padding: 0; /* Remove any default padding */
+}
+
+/* Responsive Round Button Styles */
+@media (max-width: 768px) {
+    .round-button {
+        width: 20vw; /* Width is 20% of viewport width on mobile */
+        height: 20vw; /* Height is 20% of viewport width on mobile */
+        font-size: 3vw; /* Adjust font size for smaller screens to fit text */
+        top: 10px; /* Adjust vertical position for mobile */
+        right: 10px; /* Adjust horizontal position for mobile */
+    }
+}
+
+.round-button:hover {
+    background-color: #c88aab; /* Lighter background color on hover */
+}
+
+/* Image Show Segment styles */
+.image-show-segment {
+    width: 70%; /* Set the width to 70% of the screen width */
+    margin: 0 auto; /* Center the segment horizontally */
+    padding: 0 2.5rem; /* 40px horizontal padding */
+    padding-bottom: 2rem; /* Added bottom padding */
+    background-color: #fff;
+}
+
+/* Adjust image-show-segment on mobile */
+@media (max-width: 768px) {
+    .image-show-segment {
+        width: 80%; /* Set width to 80% on mobile */
+        padding: 0 1.25rem; /* Reduce padding on mobile */
+        padding-bottom: 1rem; /* Adjust bottom padding on mobile */
+    }
+}
+
+/* Image Show Content styles */
+.image-show-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Adjust image and text-box on mobile */
+@media (max-width: 768px) {
+    .image-show-content {
+        flex-direction: column; /* Stack image on top and text box on bottom */
+    }
+}
+
+/* Image styles */
+.image-show-content img {
+    max-width: 50%; /* Control the image size */
+    height: auto;
+}
+
+/* Text Box styles */
+.text-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.25rem; /* 20px padding */
+    border-radius: 8px;
+    flex: 1;
+    font-size: clamp(0.8rem, 2vw + 0.5rem, 1.2rem); /* Responsive font size */
+    line-height: 1.5; /* Adjust line height for readability */
+}
+
+/* Separator styles */
+.section-separator {
+    display: block;
+    width: 70%; /* 70% width of the page */
+    margin: 20px auto; /* Center it with auto margins */
+    height: auto;
+    background: url('images/red_line_hor.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Adjust separator size on mobile */
+@media (max-width: 768px) {
+    .section-separator {
+        width: 80%; /* Adjusted for mobile view */
+    }
+}
+
+/* Header styles */
+header {
+    background-color: #901658; /* Dark purple background */
+    color: white; /* White text color for contrast */
+    padding: 0 30px; /* Add horizontal padding to space out the content */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and nav */
+    position: relative; /* Position relative for absolute positioning of logo */
+    height: 120px; /* Set a fixed height for the header (adjust as needed) */
+}
+
+/* Logo styles */
+.logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Make the logo as tall as the header */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the logo fits within its container */
+    z-index: 1; /* Ensure the logo stays below other elements like the hamburger menu */
+}
+
+/* Navigation container for positioning */
+.nav-container {
+    display: flex;
+    flex-direction: column; /* Stack social icons and menu vertically */
+    align-items: flex-end; /* Align items to the right */
+    width: calc(100% - 10px); /* Adjusted to provide space on the right */
+    position: relative; /* Position relative to accommodate the logo */
+    margin-right: 30px; /* Add space on the right side */
+}
+
+/* Social icons styles */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px; /* Space between social icons and main menu */
+    align-self: flex-end; /* Align social icons to the right */
+}
+
+/* Ensure social icons are white */
+.social-icons img {
+    width: 20px; /* Adjust size of social icons */
+    height: 20px;
+    filter: brightness(0) invert(1); /* Invert colors for white icons on dark background */
+}
+
+/* Main menu styles */
+.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    align-self: flex-end; /* Align main menu to the right */
+}
+
+/* Menu links */
+.main-menu li a {
+    text-decoration: none;
+    color: white; /* Set menu link color to white */
+    font-family: 'Sorts Mill Goudy', serif; /* Ensure consistent font */
+}
+
+/* Menu link hover effect */
+.main-menu li a:hover {
+    color: #f0f0f0; /* Optional: lighter color on hover for better visibility */
+}
+
+/* Hamburger button styles */
+.hamburger {
+    display: none; /* Default hidden on desktop */
+    flex-direction: column;
+    gap: 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    right: 30px; /* Space from the right edge */
+    top: 20px;
+    z-index: 2; /* Ensure it stays above other elements */
+}
+
+.hamburger span {
+    width: 24px;
+    height: 3px;
+    background-color: white; /* Hamburger icon color */
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 5px;
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -5px;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    margin-top: 0; /* Remove margin-top to align directly below header */
+    padding: 20px;
+    background-color: #c88aab; /* Light pink background */
+    position: absolute;
+    top: 80px; /* Align directly below header */
+    right: 30px; /* Space from the right edge */
+    width: calc(100% - 60px); /* Full width minus the right padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Show mobile menu when active */
+.mobile-menu.active {
+    display: flex;
+}
+
+/* Mobile Social Icons */
+.social-icons-mobile {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px; /* Space below icons */
+    align-items: center; /* Center align icons vertically */
+    justify-content: flex-start; /* Align icons to the left */
+}
+
+/* Mobile Social Icons Images */
+.social-icons-mobile img {
+    width: 20px; /* Adjust size of social icons */
+    height: 20px;
+    filter: brightness(0) invert(1); /* Make icons white */
+}
+
+/* Mobile Main Menu */
+.main-menu-mobile {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Mobile Menu Items */
+.main-menu-mobile li {
+    text-align: left; /* Align text to the left */
+}
+
+/* Menu links */
+.main-menu-mobile li a {
+    text-decoration: none;
+    color: white; /* Set menu link color to white */
+    font-family: 'Sorts Mill Goudy', serif; /* Ensure consistent font */
+    padding: 10px 15px; /* Add padding for better touch targets */
+    display: block;
+    background-color: #c88aab; /* Light pink background */
+}
+
+/* Menu link hover effect */
+.main-menu-mobile li a:hover {
+    background-color: #901658; /* Dark purple background on hover */
+}
+
+/* Title Text Segment styles */
+.title-text-segment {
+    width: 70%; /* Consistent width across desktop */
+    max-width: 100%; /* Prevent it from exceeding its parent width */
+    margin: 0 auto; /* Center it horizontally */
+    padding: 0; /* Optional: Adjust padding as needed */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.text-container {
+    width: 100%; /* Full width inside the title-text-segment */
+    text-align: left; /* Optional: Center-align text if needed */
+    margin: 0 auto; /* Center it horizontally */
+    padding: 20px 0; /* Optional: Adjust vertical padding */
+}
+
+.title-text-segment .text-container {
+    font-size: clamp(1.6rem, 2.4vw, 4rem);
+    line-height: 1.5;
+    color: #333;
+}
+
+.title-text-segment .text-container h1 {
+    font-size: clamp(2.25rem, 3.6vw, 4.5rem); /* 10% smaller */
+}
+
+.title-text-segment .text-container h2 {
+    font-size: clamp(1.8rem, 2.7vw, 3.6rem); /* 10% smaller */
+}
+
+.title-text-segment .text-container p {
+    font-size: clamp(1.44rem, 2.16vw, 2.7rem); /* 10% smaller */
+}
+
+/* Responsive font size for smaller screens */
+@media (max-width: 768px) {
+    .title-text-segment .text-container {
+        font-size: clamp(1.2rem, 4vw, 3.2rem); /* Reduced by 20% */
+    }
+}
+
+/* PDF Section */
+.pdf-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%; /* 70% width for larger screens */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+/* Container for PDF Viewer */
+.pdf-container {
+    width: 100%; /* Take full width of .pdf-section */
+    max-width: 100%; /* Ensure it does not exceed the width of the viewport */
+    height: auto; /* Allow height to adjust based on content */
+}
+
+/* PDF Viewer */
+#pdf-viewer {
+    width: 100%;
+    height: 1120px; /* Adjust height as needed or use auto for dynamic height */
+    border: none;
+    display: block; /* Ensure it takes the full width */
+}
+
+/* Title Alignment */
+.pdf-section h2 {
+    text-align: left; /* Align the title to the left */
+    width: 100%; /* Ensure title takes full width */
+    margin: 0 0 10px 0; /* Optional: adjust margins */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pdf-section {
+        width: 80%; /* 80% width for smaller screens */
+    }
+
+    #pdf-viewer {
+        height: 1000px; /* Adjust height for smaller screens if needed */
+    }
+}
+
+/* General Icon-Text Section Styles */
+.icon-text-section {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    max-width: 100%; /* Ensure it doesn't exceed the parent container's size */
+    margin: 20px auto;
+    padding: 40px;
+    box-sizing: border-box;
+    flex-direction: row; /* Default direction */
+}
+
+/* Default layout (icon on left) */
+.icon-text-section .icon-left {
+    margin-right: 50px; /* Space between icon and text */
+}
+
+.icon-text-section .text-right {
+    flex: 1;
+}
+
+/* Reverse layout (icon on right) */
+.icon-text-section.reverse {
+    flex-direction: row-reverse; /* Reverse the order of elements */
+}
+
+.icon-text-section.reverse .icon-left {
+    margin-left: 50px; /* Space between icon and text */
+    margin-right: 0; /* Remove margin-right */
+}
+
+.icon-text-section.reverse .text-right {
+    text-align: right; /* Ensure text is aligned right */
+}
+
+.icon-text-section .icon-left img, 
+.icon-text-section .icon-right img {
+    width: 100px; /* Set a default size for desktop */
+    filter: invert(17%) sepia(95%) saturate(715%) hue-rotate(310deg) brightness(96%) contrast(98%);
+}
+
+/* Ensure text in icon-text-section matches text-container size */
+.icon-text-section h2, 
+.icon-text-section p {
+    font-size: clamp(1.6rem, 2.4vw, 4rem); /* Adjust to match the size of .title-text-segment .text-container h1 */
+}
+
+.icon-text-section p {
+    font-size: clamp(1.6rem, 2.4vw, 4rem); /* Adjust to match the size of .title-text-segment .text-container p */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .icon-text-section {
+        width: 80%;
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 10px auto; /* Adjust margin for mobile */
+    }
+
+    .icon-text-section .icon-left, 
+    .icon-text-section .icon-right {
+        margin-bottom: 10px;
+        margin-left: 0; /* Remove margin on mobile */
+        margin-right: 0;
+    }
+
+    .icon-text-section .icon-left img, 
+    .icon-text-section .icon-right img {
+        width: 50px; /* Smaller icons on mobile */
+        margin: 0;
+    }
+
+    .icon-text-section .text-right, 
+    .icon-text-section .text-left {
+        text-align: center;
+    }
+    
+    .icon-text-section.reverse,
+    .icon-text-section.reverse .text-right{
+        flex-direction: column; /* Stack icon and text vertically in reversed layout on mobile */
+        text-align: center; /* Center-align text on mobile */
+    }
+
+    .icon-text-section.reverse .icon-left, 
+    .icon-text-section.reverse .text-right {
+        margin-left: 0; /* Remove margin on mobile */
+        margin-right: 0;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+}
+
+/* Footer styles */
+footer {
+    background-color: #901658; /* Dark purple background */
+    color: white; /* White text color */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Footer content styles */
+.footer-content {
+    width: 70%; /* 70% width of the screen on desktop */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px 0; /* Vertical padding */
+    display: flex;
+    justify-content: space-between; /* Space between address and opening hours */
+    gap: 10px; /* Space between address and opening hours */
+}
+
+/* Align address left and opening hours right on desktop */
+@media (min-width: 769px) {
+    .address {
+        text-align: left; /* Align address to the left */
+        flex: 1; /* Allow address to take up available space */
+    }
+    
+    .opening-hours {
+        text-align: right; /* Align opening hours to the right */
+        flex: 1; /* Allow opening hours to take up available space */
+    }
+}
+
+/* Responsive footer content on mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        width: 80%; /* 80% width of the screen on mobile */
+        flex-direction: column; /* Stack address and opening hours vertically */
+        text-align: center; /* Center align text on mobile */
+    }
+
+    .address, .opening-hours {
+        width: 100%; /* Full width for mobile alignment */
+    }
+
+     .address {
+        margin-bottom: 20px; /* Add bottom margin to create space */
+    }
+
+    .footer-content .opening-hours {
+        order: -1; /* Display opening hours above address */
+        margin-bottom: 40px; /* Add bottom margin to create more space */
+    }
+}
+
+/* Address and opening hours styles */
+.address, .opening-hours {
+    font-size: clamp(0.8rem, 2vw + 0.5rem, 1.2rem); /* Responsive font size */
+    line-height: 1.5; /* Adjust line height for readability */
+}
+
+/* Popup Styles */
+.popup {
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Set a max-width for larger screens */
+    padding: 40px; /* Increase padding for more content space */
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: none;
+}
+
+.popup.active {
+    display: block;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darken the overlay */
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block; /* Show when active */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .main-menu {
+        display: none; /* Hide main menu on mobile */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+    
+    .hero-container {
+        height: auto; /* Make the hero container adjust to content height */
+        padding-bottom: 20px; /* Add padding to ensure content below is not too close */
+    }
+
+    .hero-image {
+        height: 40vh; /* Adjust hero height for mobile */
+    }
+
+    .image-show-content {
+        flex-direction: column; /* Stack image on top and text box on bottom */
+    }
+
+    .image-show-content img {
+        max-width: 100%; /* Ensure image fits on smaller screens */
+    }
+
+    .social-icons {
+        display: none; /* Hide social icons on mobile */
+    }
+
+    .mobile-social-icons {
+        display: flex; /* Show social icons inside the hamburger menu */
+    }
+}

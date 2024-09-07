@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angebot - Restaurant Name</title>
+    <title>Angebot - Restaurant Adler</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-    <a href="index.html" class="logo">
-        <img src="logo.png" alt="Restaurant Adler Logo">
-    </a>
-        <nav>
-            <ul>
+    <!-- Header -->
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="logo.png" alt="Restaurant Adler Logo">
+        </a>
+    </div>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav>
+        <div class="nav-container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+            </div>
+            <ul class="main-menu">
                 <li><a href="angebot.html">Angebot</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="kegelbahn.html">Kegelbahn</a></li>
@@ -20,40 +33,112 @@
                 <li><a href="anfahrt.html">Anfahrt</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank"><img src="facebook-icon.svg" alt="Facebook"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="instagram-icon.svg" alt="Instagram"></a>
-            </div>
-        </nav>
-    </header>
+        </div>
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+    <div class="social-icons-mobile">
+        <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+    </div>
+    <ul class="main-menu-mobile">
+        <li><a href="angebot.html">Angebot</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="kegelbahn.html">Kegelbahn</a></li>
+        <li><a href="reservationen.html">Reservationen</a></li>
+        <li><a href="anfahrt.html">Anfahrt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+</div>
 
+        </div>
+    </nav>
+</header>
+
+    <!-- Main Content -->
     <main>
-        <section>
-            <h2>Angebot</h2>
-            <p>Hier ist das Menü unseres Restaurants. Wir bieten eine Vielzahl von Gerichten an, darunter lokale Spezialitäten und internationale Küche.</p>
+        <!-- Title Text Segment -->
+        <section class="title-text-segment">
+            <div class="text-container">
+                <h1>Unser Angebot</h1>
+                <p>Entdecken Sie unsere aktuellen Angebote und Spezialitäten. Genießen Sie ausgewählte Gerichte und besondere Aktionen, die wir für Sie zusammengestellt haben.</p>
+            </div>
+        </section>
+
+        <!-- PDF Integration -->
+        <section class="pdf-section">
+            <h2>Unsere Speisekarte</h2>
+            <div class="pdf-container">
+                <iframe id="pdf-viewer" src="pdfs/Adler Restaurant Speisekarte.pdf"></iframe>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="address">
-                <p>Restaurant Adler<br>
-                Mahmut Kavak<br>
-                St. Georgen-Strasse 84<br>
-                9000 St. Gallen<br>
-                076 123 45 67<br>
-                mail@mail.ch</p>
-            </div>
-            <div class="opening-hours">
-                <p>Öffnungszeiten:<br>
-                Montag - Freitag: 10:00 - 22:00<br>
-                Samstag - Sonntag: 12:00 - 23:00</p>
-            </div>
+    <!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="address">
+            Restaurant Adler<br>
+            Memo Kavak<br>
+            St. Georgen-Strasse 84<br>
+            9000 St. Gallen<br>
+            +41 71 222 18 90<br>
+            adler.rest.mk@gmail.com
         </div>
-        <div class="legal-links">
-            <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+        <div class="opening-hours">
+            Montag: Ruhetag<br>
+            Dienstag - Donnerstag: 08:30–22:00<br>
+            Freitag - Samstag: 08:30–23:00<br>
+            Sonntag: 09:00–21:00
         </div>
-        <p>&copy; 2024 Restaurant Adler. Alle Rechte vorbehalten.</p>
-    </footer>
+    </div>
+    <div class="legal-links">
+        <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p>&copy; 2024 Restaurant Adler. Alle Rechte vorbehalten.</p>
+</footer>
+
+    <!-- Popup HTML -->
+    <div id="popup" class="popup">
+        <button class="close-button" aria-label="Close">&times;</button>
+        <h2>Mehr Informationen</h2>
+        <p>Hier können Sie weitere Informationen oder Angebote hinzufügen.</p>
+        <p>Für weitere Informationen <a href="reservationen.html">klicken Sie hier</a>.</p>
+    </div>
+
+    <!-- Overlay HTML -->
+    <div id="overlay" class="overlay"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const roundButton = document.querySelector('.round-button');
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+        const closeButton = document.querySelector('.close-button');
+
+        hamburger.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('open');
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        roundButton.addEventListener('click', function() {
+            popup.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeButton.addEventListener('click', function() {
+            popup.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', function() {
+            popup.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+    </script>
 </body>
 </html>
