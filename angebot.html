@@ -109,7 +109,6 @@
                 </li>
                 <li><a href="reservationen.html">Reservationen</a></li>
                 <li><a href="anfahrt.html">Anfahrt</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
         </div>
     </nav>
@@ -125,20 +124,22 @@
             </div>
         </section>
 
-        <!-- PDF Integration -->
-        <section class="pdf-section">
-            <h2>Unsere Speisekarte</h2>
-            <div class="pdf-container">
-                <canvas id="pdf-viewer"></canvas> <!-- Using canvas for PDF rendering -->
-            </div>
-        </section>
 
-        <section class="pdf-section">
-            <h2>Adler Restaurant Flyer</h2>
-            <div class="pdf-container">
-                <canvas id="pdf-viewer2"></canvas> <!-- Second canvas for second PDF -->
-            </div>
-        </section>
+<!-- PDF Integration -->
+<section class="pdf-section">
+    <h2>Unsere Speisekarte</h2>
+    <div class="pdf-container" id="pdf-container-1">
+        <!-- The canvas elements will be inserted by JavaScript -->
+    </div>
+</section>
+
+<section class="pdf-section">
+    <h2>Adler Restaurant Flyer</h2>
+    <div class="pdf-container" id="pdf-container-2">
+        <!-- The canvas elements will be inserted by JavaScript -->
+    </div>
+</section>
+
     </main>
     <!-- Footer -->
 <footer>
@@ -169,40 +170,49 @@
     <div id="overlay" class="overlay"></div>
     
     <!-- PDF.js scripts as ES modules -->
-    <script type="module">
-        // Import PDF.js
-        import * as pdfjsLib from './libs/pdfjs/build/pdf.mjs';
+<script type="module">
+    import * as pdfjsLib from './libs/pdfjs/build/pdf.mjs';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = './libs/pdfjs/build/pdf.worker.mjs';
 
-        // Set the worker file path
-        pdfjsLib.GlobalWorkerOptions.workerSrc = './libs/pdfjs/build/pdf.worker.mjs';
+    async function renderPDF(url, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) {
+            console.error(`Container with id ${containerId} not found.`);
+            return;
+        }
 
-        // Function to render a PDF
-        async function renderPDF(url, canvasId) {
-            const pdf = await pdfjsLib.getDocument(url).promise;
-            const page = await pdf.getPage(1);  // Load the first page
+        // Clear any existing content
+        container.innerHTML = '';
 
+        const pdf = await pdfjsLib.getDocument(url).promise;
+        const numPages = pdf.numPages;
+        console.log(`PDF loaded. Number of pages: ${numPages}`);
+
+        for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
             const scale = 1.5;
             const viewport = page.getViewport({ scale });
 
-            // Get the canvas and context
-            const canvas = document.getElementById(canvasId);
+            const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
-
             canvas.width = viewport.width;
             canvas.height = viewport.height;
+            container.appendChild(canvas);
 
-            // Render the page into the canvas
             const renderContext = {
                 canvasContext: context,
                 viewport: viewport
             };
-            page.render(renderContext);
+            await page.render(renderContext).promise;
         }
+    }
 
-        // Render the PDFs
-        renderPDF('pdfs/Adler Restaurant Speisekarte.pdf', 'pdf-viewer');
-        renderPDF('pdfs/Adler Restaurant Flyer NEU.pdf', 'pdf-viewer2');
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        renderPDF('pdfs/Adler Restaurant Speisekarte.pdf', 'pdf-container-1');
+        renderPDF('pdfs/Adler Restaurant Flyer NEU.pdf', 'pdf-container-2');
+    });
+</script>
+    <script src="script.js"></script>
 </body>
 </html>
 
