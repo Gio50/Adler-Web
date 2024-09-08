@@ -602,6 +602,15 @@ header {
     }
 }
 
+/* Additional styles for PDF.js container if needed */
+.pdf-js-container {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+
 /* General Icon-Text Section Styles */
 .icon-text-section {
     display: flex;

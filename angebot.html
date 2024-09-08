@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angebot - Restaurant Adler</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Include PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.worker.min.js"></script>
+    <style>
+        .pdf-container {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        .pdf-container iframe, .pdf-container embed, #pdf-canvas {
+            width: 100%;
+            height: 600px;
+        }
+        #pdf-canvas {
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -83,14 +100,20 @@
         <section class="pdf-section">
             <h2>Unsere Speisekarte</h2>
             <div class="pdf-container">
-                <iframe id="pdf-viewer" src="pdfs/Adler Restaurant Speisekarte.pdf#zoom=100"></iframe>
+                <div id="pdf-viewer-container-1">
+                    <canvas id="pdf-canvas-1"></canvas>
+                </div>
+                <embed src="pdfs/Adler Restaurant Speisekarte.pdf" type="application/pdf" width="100%" height="600px" style="display: none;" />
             </div>
         </section>
         
         <section class="pdf-section">
             <h2>Adler Restaurant Flyer</h2>
             <div class="pdf-container">
-                <iframe id="pdf-viewer" src="pdfs/Adler Restaurant Flyer NEU.pdf#zoom=100"></iframe>
+                <div id="pdf-viewer-container-2">
+                    <canvas id="pdf-canvas-2"></canvas>
+                </div>
+                <embed src="pdfs/Adler Restaurant Flyer NEU.pdf" type="application/pdf" width="100%" height="600px" style="display: none;" />
             </div>
         </section>
     </main>
@@ -123,6 +146,34 @@
 
     <!-- Overlay HTML -->
     <div id="overlay" class="overlay"></div>
+
+    <!-- JavaScript for PDF rendering -->
+    <script>
+        function renderPDF(url, canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const context = canvas.getContext('2d');
+
+            pdfjsLib.getDocument(url).promise.then(pdf => {
+                pdf.getPage(1).then(page => {
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext);
+                });
+            });
+        }
+
+        // Render the PDFs
+        renderPDF('pdfs/Adler Restaurant Speisekarte.pdf', 'pdf-canvas-1');
+        renderPDF('pdfs/Adler Restaurant Flyer NEU.pdf', 'pdf-canvas-2');
+    </script>
+
+    <!-- Include external JS -->
     <script src="script.js"></script>
 </body>
 </html>
