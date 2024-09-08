@@ -871,6 +871,31 @@ footer {
     text-decoration: underline; /* Underline on hover */
 }
 
+        /* Add styles for the embedded map */
+        .map-container {
+            width: 70%; /* Default width for desktop */
+            margin: 0 auto; /* Centering the map */
+            position: relative;
+            padding-top: 56.25%; /* Aspect ratio 16:9 */
+            margin-bottom: 20px; /* Margin below the iframe */
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            .map-container {
+                width: 80%; /* Width for mobile */
+            }
+        }
+
 /* Media Queries */
 @media (max-width: 768px) {
     .main-menu {
@@ -909,5 +934,19 @@ footer {
 
     .mobile-social-icons {
         display: flex; /* Show social icons inside the hamburger menu */
+    }
+    
+        .round-button {
+        width: 200px; /* Adjust size for mobile */
+        height: 200px; /* Adjust size for mobile */
+        font-size: 2rem; /* Adjust font size for mobile */
+    }
+    
+        .title-text-segment .text-container {
+        font-size: calc(0.8 * clamp(1.44rem, 2.16vw, 2.7rem)); /* Adjust based on your base font size */
+    }
+
+    .address, .opening-hours {
+        font-size: calc(0.8 * clamp(0.96rem, 2.4vw + 0.6rem, 1.44rem)); /* Adjust based on your base font size */
     }
 }

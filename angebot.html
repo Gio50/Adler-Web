@@ -8,67 +8,66 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="logo.png" alt="Restaurant Adler Logo">
-            </a>
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="logo.png" alt="Restaurant Adler Logo">
+        </a>
+    </div>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav>
+        <div class="nav-container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+            </div>
+            <ul class="main-menu">
+                <li><a href="angebot.html">Menü</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Räumlichkeiten</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kegelbahn.html">Kegelbahn</a></li>
+                        <li><a href="fumoir.html">Fumoir</a></li>
+                        <li><a href="stuebli.html">Stübli</a></li>
+                        <li><a href="terasse.html">Terrasse</a></li>
+                        <li><a href="adlersaal.html">Adlersaal</a></li>
+                    </ul>
+                </li>
+                <li><a href="reservationen.html">Reservationen</a></li>
+                <li><a href="anfahrt.html">Anfahrt</a></li>
+            </ul>
         </div>
-        <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav>
-            <div class="nav-container">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
-                </div>
-                <ul class="main-menu">
-                    <li><a href="angebot.html">Menü</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Räumlichkeiten</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="kegelbahn.html">Kegelbahn</a></li>
-                            <li><a href="fumoir.html">Fumoir</a></li>
-                            <li><a href="stuebli.html">Stübli</a></li>
-                            <li><a href="terasse.html">Terrasse</a></li>
-                            <li><a href="adlersaal.html">Adlersaal</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="reservationen.html">Reservationen</a></li>
-                    <li><a href="anfahrt.html">Anfahrt</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="social-icons-mobile">
+                <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
             </div>
-            <!-- Mobile Menu -->
-            <div class="mobile-menu">
-                <div class="social-icons-mobile">
-                    <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
-                </div>
-                <ul class="main-menu-mobile">
-                    <li><a href="angebot.html">Angebot</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Räumlichkeiten</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="kegelbahn.html">Kegelbahn</a></li>
-                            <li><a href="fumoir.html">Fumoir</a></li>
-                            <li><a href="stuebli.html">Stübli</a></li>
-                            <li><a href="terasse.html">Terrasse</a></li>
-                            <li><a href="adlersaal.html">Adlersaal</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="reservationen.html">Reservationen</a></li>
-                    <li><a href="anfahrt.html">Anfahrt</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+            <ul class="main-menu-mobile">
+                <li><a href="angebot.html">Angebot</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Räumlichkeiten</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kegelbahn.html">Kegelbahn</a></li>
+                        <li><a href="fumoir.html">Fumoir</a></li>
+                        <li><a href="stuebli.html">Stübli</a></li>
+                        <li><a href="terasse.html">Terrasse</a></li>
+                        <li><a href="adlersaal.html">Adlersaal</a></li>
+                    </ul>
+                </li>
+                <li><a href="reservationen.html">Reservationen</a></li>
+                <li><a href="anfahrt.html">Anfahrt</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <!-- Main Content -->
     <main>
@@ -97,28 +96,30 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="address">
-                Restaurant Adler<br>
-                Memo Kavak<br>
-                St. Georgen-Strasse 84<br>
-                9000 St. Gallen<br>
-                +41 71 222 18 90<br>
-                adler.rest.mk@gmail.com
-            </div>
-            <div class="opening-hours">
-                Montag: Ruhetag<br>
-                Dienstag - Donnerstag: 08:30–22:00<br>
-                Freitag - Samstag: 08:30–23:00<br>
-                Sonntag: 09:00–21:00
-            </div>
+<footer>
+    <div class="footer-content">
+        <div class="address">
+            Restaurant Adler<br>
+            Memo Kavak<br>
+            St. Georgen-Strasse 84<br>
+            9000 St. Gallen<br>
+            +41 71 222 18 90<br>
+            adler.rest.mk@gmail.com
         </div>
-        <div class="legal-links">
-            <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+        <div class="opening-hours">
+            Montag: Ruhetag<br>
+            Dienstag - Donnerstag: 08:30–22:00<br>
+            Freitag - Samstag: 08:30–23:00<br>
+            Sonntag: 09:00–21:00
         </div>
-        <p>&copy; 2024 Restaurant Adler. Alle Rechte vorbehalten.</p>
-    </footer>
+    </div>
+    <div class="legal-links">
+        <a href="impressum.html">Impressum</a>
+        <span> | </span>
+        <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p>&copy; 2024 Restaurant Adler. Alle Rechte vorbehalten.</p>
+</footer>
 
     <!-- Overlay HTML -->
     <div id="overlay" class="overlay"></div>
