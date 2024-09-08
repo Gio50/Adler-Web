@@ -45,6 +45,7 @@ html, body {
     position: relative;
     overflow: hidden;
     margin-bottom: 50px; /* Adjust this value for more space */
+    z-index: 1; /* Lower than the dropdown menu */
 }
 
 .hero-container img {
@@ -68,8 +69,8 @@ html, body {
 /* Round Button Styles */
 .round-button {
     position: absolute;
-    top: 20px; /* Adjust vertical position from the top */
-    right: 20px; /* Adjust horizontal position from the right */
+    top: 100px; /* Adjust vertical position from the top */
+    right: 100px; /* Adjust horizontal position from the right */
     background-color: #901658; /* Background color */
     color: white; /* Text color */
     border: none;
@@ -111,6 +112,31 @@ html, body {
     padding: 0 2.5rem; /* 40px horizontal padding */
     padding-bottom: 2rem; /* Added bottom padding */
     background-color: #fff;
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Space between image and text */
+    position: relative; /* Ensure positioning context for child elements */
+}
+
+/* Text Box styles */
+.image-show-segment .text-box {
+    padding: 20px;
+    background: #fff; /* Change background to match other text elements */
+    color: #000; /* Change text color to match other text elements */
+    border-radius: 8px;
+    max-width: 80%;
+    /* Use flexbox alignment instead of absolute positioning */
+    flex: 1; /* Allow the text box to grow as needed */
+    display: block; /* Ensure it’s displayed as a block element */
+}
+
+/* Specific text styles */
+.image-show-segment .text-box h2 {
+    font-size: clamp(1.44rem, 2.16vw, 2.88rem); /* 80% of clamp(1.8rem, 2.7vw, 3.6rem) */
+}
+
+.image-show-segment .text-box p {
+    font-size: clamp(1.15rem, 1.73vw, 2.16rem); /* 80% of clamp(1.44rem, 2.16vw, 2.7rem) */
 }
 
 /* Adjust image-show-segment on mobile */
@@ -127,13 +153,36 @@ html, body {
     display: flex;
     align-items: center;
     gap: 20px;
+    width: 100%; /* Full width of parent */
 }
 
 /* Adjust image and text-box on mobile */
 @media (max-width: 768px) {
-    .image-show-content {
+    .image-show-segment {
+        width: 80%; /* Set width to 80% on mobile */
+        padding: 0 1.25rem; /* Reduce padding on mobile */
+        padding-bottom: 1rem; /* Adjust bottom padding on mobile */
         flex-direction: column; /* Stack image on top and text box on bottom */
     }
+
+    .image-show-content {
+        flex-direction: column; /* Stack image on top and text-box on bottom */
+    }
+
+    .image-show-content img {
+        max-width: 100%; /* Ensure image scales properly */
+        height: auto;
+    }
+}
+
+/* Photo styles */
+.wide-photo {
+    width: 70%; /* Set width to 70% of the screen size */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
+    height: 500px; /* Set a fixed height for cropping */
+    object-fit: cover; /* Crop the image to fit the container without distortion */
+    display: block; /* Ensure it's displayed as a block element */
+    margin: 20px auto; /* Center the image and add vertical spacing */
 }
 
 /* Image styles */
@@ -156,7 +205,7 @@ html, body {
 .section-separator {
     display: block;
     width: 70%; /* 70% width of the page */
-    margin: 20px auto; /* Center it with auto margins */
+    margin: 60px auto; /* Center it with auto margins */
     height: auto;
     background: url('images/red_line_hor.png') no-repeat center;
     background-size: contain;
@@ -195,11 +244,19 @@ header {
 /* Navigation container for positioning */
 .nav-container {
     display: flex;
-    flex-direction: column; /* Stack social icons and menu vertically */
-    align-items: flex-end; /* Align items to the right */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-end; /* Align items (menu and social icons) to the right */
     width: calc(100% - 10px); /* Adjusted to provide space on the right */
-    position: relative; /* Position relative to accommodate the logo */
-    margin-right: 30px; /* Add space on the right side */
+    position: relative; /* For absolute positioning if needed */
+    margin-right: 0; /* Add space on the right side */
+}
+
+/* Social Icons Container */
+.social-icons-container {
+    display: flex;
+    justify-content: flex-end; /* Right-align the icons */
+    width: 100%; /* Take full width to align with menu */
+    margin-bottom: 10px; /* Space between social icons and menu */
 }
 
 /* Social icons styles */
@@ -226,7 +283,9 @@ header {
     display: flex;
     gap: 20px;
     align-items: center;
-    align-self: flex-end; /* Align main menu to the right */
+    align-self: flex-end; /* Keep the main menu aligned to the right */
+    justify-content: flex-end; /* Ensure items within the menu align to the right */
+    width: 100%; /* Take full width to align with social icons */
 }
 
 /* Menu links */
@@ -239,6 +298,99 @@ header {
 /* Menu link hover effect */
 .main-menu li a:hover {
     color: #f0f0f0; /* Optional: lighter color on hover for better visibility */
+}
+
+/* Main Menu Styles */
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-menu li {
+    position: relative;
+}
+
+.main-menu li a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #white;
+}
+
+.main-menu li a:last-child {
+    padding-right: 0;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative; /* Ensure the dropdown menu stays within its container */
+    z-index: 1000; /* Higher than the hero image */
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto; /* Let the width adjust to content */
+    white-space: nowrap; /* Prevent text from wrapping onto a new line */
+    background-color: #c88aab; /* Light pink background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Match box shadow */
+    list-style: none;
+    padding: 10px 0;
+    min-width: 160px;
+    z-index: 2000; /* Same here, so it appears above the hero image */
+}
+
+.dropdown .dropdown-menu li {
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown .dropdown-menu li a {
+    padding: 10px 15px;
+    color: white; /* White text like the hamburger menu */
+    font-family: 'Sorts Mill Goudy', serif; /* Ensure consistent font */
+    background-color: #c88aab; /* Light pink background */
+}
+
+.dropdown .dropdown-menu li a:hover {
+    background-color: #901658; /* Dark purple on hover */
+}
+
+/* Show dropdown on hover for desktop */
+@media (min-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Mobile Dropdown Menu Styling */
+@media (max-width: 767px) {
+    /* Make the dropdown menu visible and styled as an under category */
+    .dropdown {
+        position: static; /* Make sure it's positioned statically on mobile */
+    }
+
+    .dropdown .dropdown-menu {
+        display: block; /* Show the dropdown menu */
+        position: relative; /* Relative positioning for alignment */
+        margin-left: 20px; /* Indent the dropdown to the right */
+        background-color: #c88aab; /* Match background color */
+        box-shadow: none; /* Remove shadow for mobile */
+        width: auto; /* Adjust width as needed */
+    }
+
+    .dropdown .dropdown-menu li {
+        display: block; /* Stack items vertically */
+        padding: 0; /* Remove padding if needed */
+    }
+
+    .dropdown .dropdown-menu li a {
+        padding: 10px 15px; /* Adjust padding for touch targets */
+        background-color: #c88aab; /* Ensure consistent background */
+    }
 }
 
 /* Hamburger button styles */
@@ -377,6 +529,11 @@ header {
     font-size: clamp(1.44rem, 2.16vw, 2.7rem); /* 10% smaller */
 }
 
+.title-text-segment .text-container p a {
+    color: #0056b3; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
 /* Responsive font size for smaller screens */
 @media (max-width: 768px) {
     .title-text-segment .text-container {
@@ -394,11 +551,19 @@ header {
     margin: 0 auto; /* Center the section horizontally */
 }
 
+/* Title Alignment */
+.pdf-section h2 {
+    text-align: left; /* Align the title to the left */
+    width: 100%; /* Ensure title takes full width */
+    margin: 0 0 30px 0; /* Optional: adjust margins */
+}
+
 /* Container for PDF Viewer */
 .pdf-container {
     width: 100%; /* Take full width of .pdf-section */
     max-width: 100%; /* Ensure it does not exceed the width of the viewport */
     height: auto; /* Allow height to adjust based on content */
+    margin-bottom: 30px; 
 }
 
 /* PDF Viewer */
@@ -407,13 +572,6 @@ header {
     height: 1120px; /* Adjust height as needed or use auto for dynamic height */
     border: none;
     display: block; /* Ensure it takes the full width */
-}
-
-/* Title Alignment */
-.pdf-section h2 {
-    text-align: left; /* Align the title to the left */
-    width: 100%; /* Ensure title takes full width */
-    margin: 0 0 10px 0; /* Optional: adjust margins */
 }
 
 /* Responsive adjustments */
@@ -534,6 +692,7 @@ footer {
     color: white; /* White text color */
     padding: 20px;
     text-align: center;
+    font-size: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 /* Footer content styles */
@@ -583,7 +742,8 @@ footer {
 
 /* Address and opening hours styles */
 .address, .opening-hours {
-    font-size: clamp(0.8rem, 2vw + 0.5rem, 1.2rem); /* Responsive font size */
+    font-size: clamp(0.96rem, 2.4vw + 0.6rem, 1.44rem);
+ /* Responsive font size */
     line-height: 1.5; /* Adjust line height for readability */
 }
 
@@ -634,6 +794,27 @@ footer {
     display: block; /* Show when active */
 }
 
+.legal-links {
+    font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+}
+
+.legal-links span {
+    margin: 0 5px;
+    color: #fff; /* You can adjust the color as needed */
+}
+
+.legal-links a {
+    font-family: inherit; /* Use the same font as the rest of the site */
+    font-size: clamp(0.6rem, 1.5vw, 0.9rem); /* Smaller font size with clamp for responsiveness */
+    color: #fff; /* Adjust color if needed */
+    text-decoration: none; /* Remove underline */
+    margin-right: 0px; /* Space between links */
+}
+
+.legal-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .main-menu {
@@ -651,6 +832,11 @@ footer {
 
     .hero-image {
         height: 40vh; /* Adjust hero height for mobile */
+    }
+    
+    .wide-photo {
+        width: 80%; /* Adjust width for mobile */
+        height: 300px; /* Adjust height for mobile */
     }
 
     .image-show-content {
