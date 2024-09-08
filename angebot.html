@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angebot - Restaurant Adler</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- PDF.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.178/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.178/pdf.worker.min.js"></script>
     <style>
@@ -29,7 +30,7 @@
         .pdf-container {
             width: 100%; /* Take full width of .pdf-section */
             max-width: 100%; /* Ensure it does not exceed the width of the viewport */
-            height: 80vh; /* Adjust height to ensure the iframe is scrollable */
+            height: 80vh; /* Adjust height to ensure the container is scrollable */
             margin-bottom: 30px; 
             overflow: auto; /* Enable scrolling */
             position: relative; /* Needed for absolute positioning of the canvas */
@@ -73,6 +74,7 @@
         <section class="pdf-section">
             <h2>Unsere Speisekarte</h2>
             <div class="pdf-container" id="pdf-container-1">
+                <!-- Fallback message -->
                 <p>Your browser does not support PDFs. <a href="pdfs/Adler Restaurant Speisekarte.pdf" download>Download the PDF</a>.</p>
             </div>
         </section>
@@ -80,6 +82,7 @@
         <section class="pdf-section">
             <h2>Adler Restaurant Flyer</h2>
             <div class="pdf-container" id="pdf-container-2">
+                <!-- Fallback message -->
                 <p>Your browser does not support PDFs. <a href="pdfs/Adler Restaurant Flyer NEU.pdf" download>Download the PDF</a>.</p>
             </div>
         </section>
@@ -98,6 +101,9 @@
         function renderPDF(pdfUrl, containerId) {
             const container = document.getElementById(containerId);
             if (!container) return;
+
+            // Clear any existing content
+            container.innerHTML = '';
 
             const loadingTask = pdfjsLib.getDocument(pdfUrl);
             loadingTask.promise.then(pdf => {
