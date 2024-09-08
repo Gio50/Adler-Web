@@ -22,6 +22,18 @@ html, body {
     color: #333;
 }
 
+/* Default logo for desktop */
+.logo img {
+    content: url('logo.png');
+}
+
+/* Logo for mobile screens */
+@media (max-width: 768px) {
+    .logo img {
+        content: url('logo_mobile.png');
+    }
+}
+
 /* Text container styles */
 .text-container {
     width: 70%; /* Set the width to 70% of the page */
@@ -397,26 +409,30 @@ header {
 .hamburger {
     display: none; /* Default hidden on desktop */
     flex-direction: column;
-    gap: 4px;
+    gap: 12px; /* Increased gap between lines */
     border: none;
     background: none;
     cursor: pointer;
     position: absolute;
+    width: 60px; /* Adjust width as needed */
+    height: 48px; /* Height of the hamburger menu */
     right: 30px; /* Space from the right edge */
     top: 20px;
     z-index: 2; /* Ensure it stays above other elements */
 }
 
 .hamburger span {
-    width: 24px;
-    height: 3px;
+    display: block;
+    width: 60px; /* Adjust width to match container width */
+    height: 6px; /* Reduced height for thinner lines */
     background-color: white; /* Hamburger icon color */
+    transition: all 0.3s ease; /* Smooth transition for open/close animation */
 }
 
 .hamburger.open span:nth-child(1) {
     transform: rotate(45deg);
     position: relative;
-    top: 5px;
+    top: 15px; /* Adjusted for better alignment */
 }
 
 .hamburger.open span:nth-child(2) {
@@ -426,8 +442,9 @@ header {
 .hamburger.open span:nth-child(3) {
     transform: rotate(-45deg);
     position: relative;
-    top: -5px;
+    top: -15px; /* Adjusted for better alignment */
 }
+
 
 /* Mobile Menu */
 .mobile-menu {
@@ -747,6 +764,31 @@ footer {
     line-height: 1.5; /* Adjust line height for readability */
 }
 
+.wochenmenu {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+.wochenmenu h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.wochenmenu .menu-day {
+    margin-bottom: 1rem;
+}
+
+.wochenmenu .menu-day h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.wochenmenu .menu-day p {
+    font-size: 1rem;
+    margin: 0;
+}
+
 /* Popup Styles */
 .popup {
     width: 80%; /* Adjust the width as needed */
@@ -792,6 +834,20 @@ footer {
 
 .overlay.active {
     display: block; /* Show when active */
+}
+
+/* Menu Days */
+.menu-day {
+    margin-bottom: 20px;
+}
+
+.menu-day h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.menu-day p {
+    margin: 5px 0 0;
 }
 
 .legal-links {

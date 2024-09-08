@@ -1,0 +1,18 @@
+Dienstag
+Hier ist das Menü für Dienstag.
+
+Mittwoch
+Hier ist das Menü für Mittwoch.
+
+Donnerstag
+Hier ist das Menü für Donnerstag.
+
+Freitag
+Hier ist das Menü für Freitag.
+
+Samstag
+Hier ist das Menü für Samstag.
+
+Sonntag
+Hier ist das Menü für Sonntag.
+

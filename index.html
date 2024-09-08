@@ -75,7 +75,7 @@
         <div class="hero-image">
             <img src="home-large.jpg" alt="Restaurant Image">
         </div>
-        <button class="round-button" aria-label="More Info">Reservieren</button>
+        <button class="round-button" aria-label="More Info">Wochen-<br>menü</button>
     </section>
 
     <img src="images/red_line_hor.png" alt="Separator Line" class="section-separator">
@@ -139,12 +139,7 @@
 
 <!-- Popup HTML -->
 <div id="popup" class="popup">
-    <button class="close-button" aria-label="Close">&times;</button>
-    <h2>Reservieren</h2>
-    <p>Für Reservationen rufen Sie uns unter dieser Nummer an<br>
-    <br>
-     +41 71 222 18 90</p>
-    <p>Für weitere Informationen <a href="reservationen.html">klicken Sie hier</a>.</p>
+    <!-- Content will be dynamically added here by JavaScript -->
 </div>
 
 <!-- Overlay HTML -->
@@ -157,11 +152,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const roundButton = document.querySelector('.round-button');
     const popup = document.getElementById('popup');
     const overlay = document.getElementById('overlay');
-    const closeButton = document.querySelector('.close-button');
 
-    if (!hamburger || !mobileMenu || !roundButton || !popup || !overlay || !closeButton) {
+    if (!hamburger || !mobileMenu || !roundButton || !popup || !overlay) {
         console.error('One or more required elements are missing in the DOM.');
         return;
+    }
+
+    // Load menu content from text file
+    function loadMenuContent() {
+        fetch('wochenmenu.txt')
+            .then(response => response.text())
+            .then(data => {
+                const menuContent = data.split('\n\n').map(item => {
+                    const [title, ...content] = item.split('\n');
+                    return `<div class="menu-day"><h3>${title}</h3><p>${content.join('<br>')}</p></div>`;
+                }).join('');
+                popup.innerHTML = `<button class="close-button" aria-label="Close">&times;</button><h2>Wochenmenü</h2>${menuContent}`;
+
+                // Re-select the dynamically added close button
+                const closeButton = popup.querySelector('.close-button');
+                closeButton.addEventListener('click', function() {
+                    popup.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            })
+            .catch(error => console.error('Error loading menu content:', error));
     }
 
     hamburger.addEventListener('click', function() {
@@ -175,13 +190,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     roundButton.addEventListener('click', function() {
+        loadMenuContent(); // Load the menu content when the popup is opened
         popup.classList.add('active');
         overlay.classList.add('active');
-    });
-
-    closeButton.addEventListener('click', function() {
-        popup.classList.remove('active');
-        overlay.classList.remove('active');
     });
 
     overlay.addEventListener('click', function() {
@@ -189,6 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.classList.remove('active');
     });
 });
+
 </script>
 </body>
 </html>
