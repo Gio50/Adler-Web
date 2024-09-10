@@ -27,13 +27,6 @@ html, body {
     content: url('logo.png');
 }
 
-/* Logo for mobile screens */
-@media (max-width: 768px) {
-    .logo img {
-        content: url('logo_mobile.png');
-    }
-}
-
 /* Text container styles */
 .text-container {
     width: 70%; /* Set the width to 70% of the page */
@@ -41,13 +34,6 @@ html, body {
     padding: 1.5rem 0; /* 24px vertical padding */
     background-color: #fff; /* Set the background color to white */
     border-radius: 8px; /* Optional: Add rounded corners */
-}
-
-/* Responsive text container on mobile */
-@media (max-width: 768px) {
-    .text-container {
-        width: 80%; /* More width on smaller screens */
-    }
 }
 
 /* Hero container styles */
@@ -102,17 +88,6 @@ html, body {
     padding: 0; /* Remove any default padding */
 }
 
-/* Responsive Round Button Styles */
-@media (max-width: 768px) {
-    .round-button {
-        width: 20vw; /* Width is 20% of viewport width on mobile */
-        height: 20vw; /* Height is 20% of viewport width on mobile */
-        font-size: 3vw; /* Adjust font size for smaller screens to fit text */
-        top: 10px; /* Adjust vertical position for mobile */
-        right: 10px; /* Adjust horizontal position for mobile */
-    }
-}
-
 .round-button:hover {
     background-color: #c88aab; /* Lighter background color on hover */
 }
@@ -132,11 +107,11 @@ html, body {
 
 /* Text Box styles */
 .image-show-segment .text-box {
-    padding: 20px;
+    padding: 0px;
     background: #fff; /* Change background to match other text elements */
     color: #000; /* Change text color to match other text elements */
     border-radius: 8px;
-    max-width: 80%;
+    max-width: 100%;
     /* Use flexbox alignment instead of absolute positioning */
     flex: 1; /* Allow the text box to grow as needed */
     display: block; /* Ensure it’s displayed as a block element */
@@ -151,40 +126,12 @@ html, body {
     font-size: clamp(1.15rem, 1.73vw, 2.16rem); /* 80% of clamp(1.44rem, 2.16vw, 2.7rem) */
 }
 
-/* Adjust image-show-segment on mobile */
-@media (max-width: 768px) {
-    .image-show-segment {
-        width: 80%; /* Set width to 80% on mobile */
-        padding: 0 1.25rem; /* Reduce padding on mobile */
-        padding-bottom: 1rem; /* Adjust bottom padding on mobile */
-    }
-}
-
 /* Image Show Content styles */
 .image-show-content {
     display: flex;
     align-items: center;
     gap: 20px;
     width: 100%; /* Full width of parent */
-}
-
-/* Adjust image and text-box on mobile */
-@media (max-width: 768px) {
-    .image-show-segment {
-        width: 80%; /* Set width to 80% on mobile */
-        padding: 0 1.25rem; /* Reduce padding on mobile */
-        padding-bottom: 1rem; /* Adjust bottom padding on mobile */
-        flex-direction: column; /* Stack image on top and text box on bottom */
-    }
-
-    .image-show-content {
-        flex-direction: column; /* Stack image on top and text-box on bottom */
-    }
-
-    .image-show-content img {
-        max-width: 100%; /* Ensure image scales properly */
-        height: auto;
-    }
 }
 
 /* Photo styles */
@@ -221,13 +168,6 @@ html, body {
     height: auto;
     background: url('images/red_line_hor.png') no-repeat center;
     background-size: contain;
-}
-
-/* Adjust separator size on mobile */
-@media (max-width: 768px) {
-    .section-separator {
-        width: 80%; /* Adjusted for mobile view */
-    }
 }
 
 /* Header styles */
@@ -371,40 +311,6 @@ header {
     background-color: #901658; /* Dark purple on hover */
 }
 
-/* Show dropdown on hover for desktop */
-@media (min-width: 768px) {
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-}
-
-/* Mobile Dropdown Menu Styling */
-@media (max-width: 767px) {
-    /* Make the dropdown menu visible and styled as an under category */
-    .dropdown {
-        position: static; /* Make sure it's positioned statically on mobile */
-    }
-
-    .dropdown .dropdown-menu {
-        display: block; /* Show the dropdown menu */
-        position: relative; /* Relative positioning for alignment */
-        margin-left: 20px; /* Indent the dropdown to the right */
-        background-color: #c88aab; /* Match background color */
-        box-shadow: none; /* Remove shadow for mobile */
-        width: auto; /* Adjust width as needed */
-    }
-
-    .dropdown .dropdown-menu li {
-        display: block; /* Stack items vertically */
-        padding: 0; /* Remove padding if needed */
-    }
-
-    .dropdown .dropdown-menu li a {
-        padding: 10px 15px; /* Adjust padding for touch targets */
-        background-color: #c88aab; /* Ensure consistent background */
-    }
-}
-
 /* Hamburger button styles */
 .hamburger {
     display: none; /* Default hidden on desktop */
@@ -521,14 +427,11 @@ header {
     box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
-.text-container {
+.title-text-segment .text-container {
     width: 100%; /* Full width inside the title-text-segment */
     text-align: left; /* Optional: Center-align text if needed */
     margin: 0 auto; /* Center it horizontally */
     padding: 20px 0; /* Optional: Adjust vertical padding */
-}
-
-.title-text-segment .text-container {
     font-size: clamp(1.6rem, 2.4vw, 4rem);
     line-height: 1.5;
     color: #333;
@@ -551,13 +454,6 @@ header {
     text-decoration: none; /* Remove underline */
 }
 
-/* Responsive font size for smaller screens */
-@media (max-width: 768px) {
-    .title-text-segment .text-container {
-        font-size: clamp(1.2rem, 4vw, 3.2rem); /* Reduced by 20% */
-    }
-}
-
 /* PDF Section */
 .pdf-section {
     padding: 20px;
@@ -573,6 +469,7 @@ header {
     text-align: left; /* Align the title to the left */
     width: 100%; /* Ensure title takes full width */
     margin: 0 0 30px 0; /* Optional: adjust margins */
+    font-size: 1.25rem;
 }
 
 /* Container for PDF Viewer */
@@ -589,17 +486,6 @@ header {
     width: 100%;
     height: 100%;
     border: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .pdf-section {
-        width: 80%; /* 80% width for smaller screens */
-    }
-
-    .pdf-container {
-        height: 80vh; /* Ensure height is responsive for smaller screens */
-    }
 }
 
 /* Additional styles for PDF.js container if needed */
@@ -653,63 +539,12 @@ header {
 }
 
 /* Ensure text in icon-text-section matches text-container size */
-.icon-text-section h2, 
-.icon-text-section p {
+.icon-text-section h2 {
     font-size: clamp(1.6rem, 2.4vw, 4rem); /* Adjust to match the size of .title-text-segment .text-container h1 */
 }
 
 .icon-text-section p {
     font-size: clamp(1.6rem, 2.4vw, 4rem); /* Adjust to match the size of .title-text-segment .text-container p */
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .icon-text-section {
-        width: 80%;
-        padding: 0;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin: 10px auto; /* Adjust margin for mobile */
-    }
-
-    .icon-text-section .icon-left, 
-    .icon-text-section .icon-right {
-        margin-bottom: 10px;
-        margin-left: 0; /* Remove margin on mobile */
-        margin-right: 0;
-    }
-
-    .icon-text-section .icon-left img, 
-    .icon-text-section .icon-right img {
-        width: 50px; /* Smaller icons on mobile */
-        margin: 0;
-    }
-
-    .icon-text-section .text-right, 
-    .icon-text-section .text-left {
-        text-align: center;
-    }
-    
-    .icon-text-section.reverse,
-    .icon-text-section.reverse .text-right{
-        flex-direction: column; /* Stack icon and text vertically in reversed layout on mobile */
-        text-align: center; /* Center-align text on mobile */
-    }
-
-    .icon-text-section.reverse .icon-left, 
-    .icon-text-section.reverse .text-right {
-        margin-left: 0; /* Remove margin on mobile */
-        margin-right: 0;
-    }
-
-    h2 {
-        font-size: 1.25rem;
-    }
-
-    p {
-        font-size: 0.875rem;
-    }
 }
 
 /* Footer styles */
@@ -729,41 +564,6 @@ footer {
     display: flex;
     justify-content: space-between; /* Space between address and opening hours */
     gap: 10px; /* Space between address and opening hours */
-}
-
-/* Align address left and opening hours right on desktop */
-@media (min-width: 769px) {
-    .address {
-        text-align: left; /* Align address to the left */
-        flex: 1; /* Allow address to take up available space */
-    }
-    
-    .opening-hours {
-        text-align: right; /* Align opening hours to the right */
-        flex: 1; /* Allow opening hours to take up available space */
-    }
-}
-
-/* Responsive footer content on mobile */
-@media (max-width: 768px) {
-    .footer-content {
-        width: 80%; /* 80% width of the screen on mobile */
-        flex-direction: column; /* Stack address and opening hours vertically */
-        text-align: center; /* Center align text on mobile */
-    }
-
-    .address, .opening-hours {
-        width: 100%; /* Full width for mobile alignment */
-    }
-
-     .address {
-        margin-bottom: 20px; /* Add bottom margin to create space */
-    }
-
-    .footer-content .opening-hours {
-        order: -1; /* Display opening hours above address */
-        margin-bottom: 40px; /* Add bottom margin to create more space */
-    }
 }
 
 /* Address and opening hours styles */
@@ -800,7 +600,7 @@ footer {
 
 /* Popup Styles */
 .popup {
-    width: 80%; /* Adjust the width as needed */
+    width: 70%; /* Default for desktop */
     max-width: 800px; /* Set a max-width for larger screens */
     padding: 40px; /* Increase padding for more content space */
     background-color: white;
@@ -898,15 +698,198 @@ footer {
             border: 0;
         }
 
-        /* Responsive design for mobile */
-        @media (max-width: 768px) {
-            .map-container {
-                width: 80%; /* Width for mobile */
-            }
-        }
-
-/* Media Queries */
+/* Mobile Styles */
 @media (max-width: 768px) {
+
+    /* Logo for mobile screens */
+    .logo img {
+        content: url('logo_mobile.png');
+    }
+    
+        /* Responsive text container on mobile */
+    .title-text-segment {
+        width: 80%; /* More width on smaller screens */
+    }
+
+    /* Responsive text container on mobile */
+    .title-text-segment .text-container {
+        width: 100%; /* More width on smaller screens */
+        margin: 0;
+    }
+
+    /* Responsive Round Button Styles */
+    .round-button {
+        width: 20vw; /* Width is 20% of viewport width on mobile */
+        height: 20vw; /* Height is 20% of viewport width on mobile */
+        font-size: 3vw; /* Adjust font size for smaller screens to fit text */
+        top: 10px; /* Adjust vertical position for mobile */
+        right: 10px; /* Adjust horizontal position for mobile */
+    }
+
+    /* Adjust image and text-box on mobile */
+    .image-show-segment {
+        margin: 20px auto;
+        width: 80%; /* Set width to 80% on mobile */
+        padding: 0 1.25rem; /* Reduce padding on mobile */
+        padding-bottom: 1rem; /* Adjust bottom padding on mobile */
+        flex-direction: column; /* Stack image on top and text box on bottom */
+    }
+
+    .image-show-content {
+        flex-direction: column; /* Stack image on top and text-box on bottom */
+    }
+
+    .image-show-content img {
+        max-width: 100%; /* Ensure image scales properly */
+        height: auto;
+    }
+
+    /* Adjust separator size on mobile */
+    .section-separator {
+        width: 80%; /* Adjusted for mobile view */
+        margin: 20px auto;
+    }
+
+    /* Mobile Dropdown Menu Styling */
+    .dropdown {
+        position: static; /* Make sure it's positioned statically on mobile */
+    }
+
+    .dropdown .dropdown-menu {
+        display: block; /* Show the dropdown menu */
+        position: static; /* Static positioning for mobile */
+        margin-left: 20px; /* Indent the dropdown to the right */
+        background-color: #c88aab; /* Match background color */
+        box-shadow: none; /* Remove shadow for mobile */
+        width: auto; /* Adjust width as needed */
+        padding: 0; /* No extra padding */
+    }
+
+    .dropdown .dropdown-menu li {
+        display: block; /* Stack items vertically */
+        padding: 0; /* Remove padding if needed */
+    }
+
+    .dropdown .dropdown-menu li a {
+        padding: 10px; /* Adjust padding for touch targets */
+        background-color: #c88aab; /* Ensure consistent background */
+        display: block; /* Block display for full width */
+    }
+
+    .icon-text-section {
+        width: 80%;
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 10px auto; /* Adjust margin for mobile */
+    }
+    
+	.icon-text-section h1 {
+	font-size: clamp(1.8rem, 2.7vw, 3.6rem); 
+	}
+	
+	.icon-text-section h2 {
+	font-size: clamp(1.44rem, 2.16vw, 2.88rem); 
+	}
+
+	.icon-text-section p {
+	font-size: clamp(1.15rem, 1.73vw, 2.16rem);
+	}    
+
+    .icon-text-section .icon-left, 
+    .icon-text-section .icon-right {
+        margin-bottom: 10px;
+        margin-left: 0; /* Remove margin on mobile */
+        margin-right: 0;
+    }
+
+    .icon-text-section .icon-left img, 
+    .icon-text-section .icon-right img {
+        width: 50px; /* Smaller icons on mobile */
+        margin: 0;
+    }
+
+    .icon-text-section .text-right, 
+    .icon-text-section .text-left {
+        text-align: center;
+    }
+    
+    .icon-text-section.reverse,
+    .icon-text-section.reverse .text-right{
+        flex-direction: column; /* Stack icon and text vertically in reversed layout on mobile */
+        text-align: center; /* Center-align text on mobile */
+    }
+
+    .icon-text-section.reverse .icon-left, 
+    .icon-text-section.reverse .text-right {
+        margin-left: 0; /* Remove margin on mobile */
+        margin-right: 0;
+    }
+    
+    .image-show-segment .text-box h1 {
+    font-size: clamp(1.8rem, 2.7vw, 3.6rem);
+    }
+    
+    .image-show-segment .text-box h2 {
+    font-size: clamp(1.44rem, 2.16vw, 2.88rem);
+    }    
+    
+    .image-show-segment .text-box p {
+    font-size: clamp(1.15rem, 1.73vw, 2.16rem);
+    }    
+    
+        /* Adjust title text container font size */
+    .title-text-segment .text-container {
+        font-size: calc(0.8 * clamp(1.44rem, 2.16vw, 2.7rem)); /* Adjust based on your base font size */
+    }
+    
+    .title-text-segment .text-container h1 {
+        font-size: clamp(1.8rem, 2.7vw, 3.6rem);
+    }
+
+    .title-text-segment .text-container h2 {
+        font-size: clamp(1.44rem, 2.16vw, 2.88rem);
+    }
+
+    .title-text-segment .text-container p {
+        font-size: clamp(1.15rem, 1.73vw, 2.16rem);
+    }
+
+    /* Responsive PDF sections */
+    .pdf-section {
+        width: 80%; /* 80% width for smaller screens */
+    }
+
+    .pdf-container {
+        height: 80vh; /* Ensure height is responsive for smaller screens */
+    }
+
+    /* Responsive footer content on mobile */
+    .footer-content {
+        width: 80%; /* 80% width of the screen on mobile */
+        flex-direction: column; /* Stack address and opening hours vertically */
+        text-align: center; /* Center align text on mobile */
+    }
+
+    .address, .opening-hours {
+        width: 100%; /* Full width for mobile alignment */
+    }
+
+    .address {
+        margin-bottom: 20px; /* Add bottom margin to create space */
+    }
+
+    .footer-content .opening-hours {
+        order: -1; /* Display opening hours above address */
+        margin-bottom: 40px; /* Add bottom margin to create more space */
+    }
+
+    /* Responsive design for mobile */
+    .map-container {
+        width: 80%; /* Width for mobile */
+    }
+
     .main-menu {
         display: none; /* Hide main menu on mobile */
     }
@@ -929,14 +912,6 @@ footer {
         height: 300px; /* Adjust height for mobile */
     }
 
-    .image-show-content {
-        flex-direction: column; /* Stack image on top and text box on bottom */
-    }
-
-    .image-show-content img {
-        max-width: 100%; /* Ensure image fits on smaller screens */
-    }
-
     .social-icons {
         display: none; /* Hide social icons on mobile */
     }
@@ -944,18 +919,42 @@ footer {
     .mobile-social-icons {
         display: flex; /* Show social icons inside the hamburger menu */
     }
-    
-        .round-button {
+
+    /* Adjust round button size */
+    .round-button {
         width: 200px; /* Adjust size for mobile */
         height: 200px; /* Adjust size for mobile */
         font-size: 2rem; /* Adjust font size for mobile */
     }
-    
-        .title-text-segment .text-container {
-        font-size: calc(0.8 * clamp(1.44rem, 2.16vw, 2.7rem)); /* Adjust based on your base font size */
-    }
 
+    /* Adjust address and opening hours font size */
     .address, .opening-hours {
         font-size: calc(0.8 * clamp(0.96rem, 2.4vw + 0.6rem, 1.44rem)); /* Adjust based on your base font size */
     }
+    
+    .popup {
+        width: 80%; /* Increase width to 80% on mobile */
+    }
+    
 }
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+
+    /* Show dropdown on hover for desktop */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Align address left and opening hours right on desktop */
+    .address {
+        text-align: left; /* Align address to the left */
+        flex: 1; /* Allow address to take up available space */
+    }
+    
+    .opening-hours {
+        text-align: right; /* Align opening hours to the right */
+        flex: 1; /* Allow opening hours to take up available space */
+    }
+}
+
