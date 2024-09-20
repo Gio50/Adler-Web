@@ -612,6 +612,9 @@ footer {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     display: none;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    max-height: 90%; /* Ensure it doesn't overflow vertically */
+    overflow-y: auto; /* Scroll content if it exceeds the container */
 }
 
 .popup.active {
@@ -933,7 +936,10 @@ footer {
     }
     
     .popup {
-        width: 80%; /* Increase width to 80% on mobile */
+        width: 90%; /* Set width to 90% on mobile */
+        height: 90%; /* Set height to 90% on mobile */
+        max-width: none; /* Remove max-width restriction */
+        padding: 20px; /* Adjust padding for smaller screens */
     }
     
 }

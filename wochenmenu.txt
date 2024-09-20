@@ -1,18 +1,20 @@
 Dienstag
-Hier ist das Menü für Dienstag.
+Normales Menü
 
 Mittwoch
 Jeden Mittwoch ist Pizzatag.
 
 Donnerstag
-Hier ist das Menü für Donnerstag.
+Normales Menü
 
 Freitag
-Hier ist das Menü für Freitag.
+Normales Menü
 
 Samstag
-Hier ist das Menü für Samstag.
+Jeden Samstag Anatolische Küche nach Vorbestellung
 
 Sonntag
-Hier ist das Menü für Sonntag.
+Kürbiscremesuppe
+Vermicelles
+Hirschpfeffer
 
