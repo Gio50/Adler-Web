@@ -720,14 +720,21 @@ footer {
         margin: 0;
     }
 
-    /* Responsive Round Button Styles */
-    .round-button {
-        width: 20vw; /* Width is 20% of viewport width on mobile */
-        height: 20vw; /* Height is 20% of viewport width on mobile */
-        font-size: 3vw; /* Adjust font size for smaller screens to fit text */
-        top: 10px; /* Adjust vertical position for mobile */
-        right: 10px; /* Adjust horizontal position for mobile */
-    }
+/* Responsive Round Button Styles */
+.round-button {
+    width: 20vw; /* Width is 20% of viewport width on mobile */
+    height: 20vw; /* Height is 20% of viewport width on mobile */
+    font-size: 3vw; /* Adjust font size for smaller screens to fit text */
+    top: 10px; /* Adjust vertical position for mobile */
+    left: 10px; /* Adjust horizontal position to align left */
+}
+
+/* Adjust round button size */
+.round-button {
+    width: 200px; /* Adjust size for mobile */
+    height: 200px; /* Adjust size for mobile */
+    font-size: 2rem; /* Adjust font size for mobile */
+}
 
     /* Adjust image and text-box on mobile */
     .image-show-segment {
@@ -921,13 +928,6 @@ footer {
 
     .mobile-social-icons {
         display: flex; /* Show social icons inside the hamburger menu */
-    }
-
-    /* Adjust round button size */
-    .round-button {
-        width: 200px; /* Adjust size for mobile */
-        height: 200px; /* Adjust size for mobile */
-        font-size: 2rem; /* Adjust font size for mobile */
     }
 
     /* Adjust address and opening hours font size */
